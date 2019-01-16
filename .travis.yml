@@ -3,8 +3,11 @@ dist: trusty
 
 before_install:
   - git clone https://github.com/SvanBoxel/hubsync.git
-  - cd hubsync
   - bundle install
 
 script:
-  - ./hubsync.rb $GITHUB_ORG $GITHUB_ORG_ACCESS_TOKEN $ENTERPRISE_URL $ENTERPRISE_ORG $ENTERPRISE_TOKEN ./
+  - ./hubsync.rb $GITHUB_ORG $GITHUB_ORG_ACCESS_TOKEN $ENTERPRISE_URL $ENTERPRISE_ORG $ENTERPRISE_TOKEN ./repos
+
+cache:
+    directories:
+     - ./repos
